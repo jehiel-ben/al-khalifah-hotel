@@ -4,7 +4,7 @@ import router from './router';
 import './style.css';
 
 // 👇 NOUVEAU POUR LES NOTIFICATIONS
-import Toast from 'vue-toastification';
+import Toast from 'vue-toastification/dist/index.mjs';
 import 'vue-toastification/dist/index.css';
 
 const app = createApp(App);
