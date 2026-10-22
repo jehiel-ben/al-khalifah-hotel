@@ -274,7 +274,7 @@
 
 <script>
 import { roomsApi, servicesApi, reservationsApi } from '../../services/api';
-import { useToast } from 'vue-toastification';
+
 export default {
   name: 'Booking',
   data() {
@@ -445,9 +445,6 @@ export default {
           this.submitError = 'L\'API n\'a pas renvoyé l\'ID. Regardez la console (F12).';
           return;
         }
-        const toast = useToast();
-        toast.success(`Réservation ${reservation.reference} créée avec succès ! 🎉`);
-
         this.$router.push(`/payment/${reservation.id}`);
       } catch (err) {
         console.error('❌ Erreur:', err.response?.data || err);

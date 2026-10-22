@@ -275,7 +275,6 @@
 
 <script>
 import { reservationsApi, paymentsApi } from '../../services/api';
-import { useToast } from 'vue-toastification';
 export default {
   name: 'Payment',
   data() {
@@ -356,9 +355,7 @@ export default {
           reservation_id: this.reservation.id,
           method: this.form.method,
         });
-          const toast = useToast();
-          toast.success('Paiement confirmé ! Merci pour votre confiance. 💳✅');
-        
+          
         // Redirection vers confirmation
         this.$router.push(`/confirmation/${this.reservation.id}`);
       } catch (err) {
