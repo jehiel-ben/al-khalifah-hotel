@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // URL de base du backend Express
-const API_BASE = 'http://localhost:3000/api';
+const API_BASE = 'https://al-khalifah-hotel.onrender.com/api';
 
 const api = axios.create({
   baseURL: API_BASE,
