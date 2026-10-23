@@ -40,6 +40,21 @@ app.use('/api/stats', statsRouter);
 
 createTables();
 
+// ⚠️ ROUTE TEMPORAIRE POUR REMPLIR LA BASE DE DONNÉES EN PRODUCTION
+app.get('/api/seed-database', async (req, res) => {
+  try {
+    const { exec } = await import('child_process');
+    exec('node src/seed.js', (error, stdout, stderr) => {
+      if (error) {
+        return res.status(500).json({ error: error.message });
+      }
+      res.json({ success: true, message: 'Base de données remplie !', output: stdout });
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`🚀 Serveur démarré sur http://localhost:${PORT}`);
 });
